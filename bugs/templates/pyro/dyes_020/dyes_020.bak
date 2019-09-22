@@ -1,0 +1,21 @@
+BATCHES : 6
+SAMPLES : 5
+y : [[1545.0, 1540.0, 1595.0, 1445.0, 1595.0], [1520.0, 1440.0, 1555.0, 1550.0, 1440.0], [1630.0, 1455.0, 1440.0, 1490.0, 1605.0], [1595.0, 1515.0, 1450.0, 1520.0, 1560.0], [1510.0, 1465.0, 1635.0, 1480.0, 1580.0], [1495.0, 1560.0, 1545.0, 1625.0, 1445.0]] [BATCHES, SAMPLES]
+transformedparam{
+    float sigma_between
+    float sigma_within
+    sigma_between = 1/sqrt(tau_between)
+    sigma_within = 1/sqrt(tau_within)
+}
+theta := normal(0.0,100000.0)
+tau_between := gamma(.001,.001)<lower=0>
+tau_within := gamma(.001,.001)<lower=0>
+mu := normal(theta,sigma_between)[BATCHES]
+for(n in 1:BATCHES)
+{
+    observe(normal(mu[n],sigma_within),y[n])
+}
+posterior(mu)
+posterior(theta)
+posterior(tau_within)
+posterior(tau_between)

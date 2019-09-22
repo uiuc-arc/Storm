@@ -1,0 +1,192 @@
+{
+  "functions":
+          [
+            {
+              "name" : "gamma_p",
+              "args" : [
+                {
+                  "name" : "a",
+                  "type" : "f+"
+                },
+                {
+                  "name" : "z",
+                  "type" : "0f+"
+                }
+              ]
+            },
+            {
+              "name" : "poisson_rng",
+              "args" : [
+                {
+                  "name" : "lambda",
+                  "type" : "f+"
+                }
+              ]
+
+            },
+            {
+              "name" : "dirichlet_rng",
+              "args" : [
+                {
+                  "name" : "alpha",
+                  "type" : "f+",
+                  "dim" : "vector"
+                }
+              ]
+
+            },
+            {
+              "name" : "log",
+              "args" : [
+                {
+                  "name" : "x",
+                  "type" : "0f+"
+                }
+              ]
+
+            },
+            {
+              "name" : "sqrt",
+              "args" : [
+                {
+                  "name" : "val",
+                  "type" : "f+"
+                }
+              ]
+            },
+            {
+              "name" : "exp",
+              "args" : [
+                {
+                  "name" : "val",
+                  "type" : "f"
+                }
+              ]
+            },
+            {
+              "name" : "pow",
+              "args" : [
+                {
+                  "name" : "x",
+                  "type" : "f"
+                },
+                {
+                  "name" : "y",
+                  "type" : "i"
+                }
+              ]
+            },
+            {
+              "name" : "square",
+              "args" : [
+                {
+                  "name" : "val",
+                  "type" : "f"
+                }
+              ]
+            },
+            {
+              "name" : "rep_vector",
+              "args" : [
+                {
+                  "name" : "v",
+                  "type" : "f"
+                },
+                {
+                  "name" : "size",
+                  "type" : "i"
+                }
+              ]
+
+            },
+            {
+              "name" : "rep_matrix",
+              "args" : [
+                {
+                  "name" : "v",
+                  "type" : "f"
+                },
+                {
+                  "name" : "row",
+                  "type" : "i"
+                },
+                {
+                  "name" : "column",
+                  "type" : "i"
+                }
+              ]
+
+            },
+            {
+              "name" : "rep_array",
+              "args" : [
+                {
+                  "name" : "v",
+                  "type" : "f"
+                },
+                {
+                  "name" : "row",
+                  "type" : "i"
+                },
+                {
+                  "name" : "column",
+                  "type" : "i"
+                }
+              ]
+
+            },
+            {
+              "name" : "normal_log",
+              "args" : [
+                {
+                  "name" : "y",
+                  "type" : "f"
+                },
+                {
+                  "name" : "mu",
+                  "type" : "f"
+                },
+                {
+                  "name" : "sigma",
+                  "type" : "f+"
+                }
+              ]
+
+            },
+            {
+              "name" : "binomial_log",
+              "args" : [
+                {
+                  "name" : "n",
+                  "type" : "i+"
+                },
+                {
+                  "name" : "N",
+                  "type" : "i+"
+                },
+                {
+                  "name" : "theta",
+                  "type" : "f+"
+                }
+              ]
+
+            },
+            {
+              "name" : "cov_exp_quad",
+              "args" : [
+                {
+                  "name" : "x",
+                  "type" : "[f]"
+                },
+                {
+                  "name" : "alpha",
+                  "type" : "f+"
+                },
+                {
+                  "name" : "rho",
+                  "type" : "f+"
+                }
+              ]
+            }
+          ]
+}

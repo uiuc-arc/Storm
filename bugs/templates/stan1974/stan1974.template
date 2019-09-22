@@ -1,0 +1,4 @@
+dummy : 0
+theta := normal(1234.0,1234.0)
+target = target + 1/0
+posterior(theta)

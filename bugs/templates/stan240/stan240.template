@@ -1,0 +1,7 @@
+dummy : 0
+Omega := lkj_corr<100>(1234.0,1234.0)
+transformedparam{
+    corr_matrix[100] OmegaCopy
+    OmegaCopy = Omega
+}
+posterior(Omega)

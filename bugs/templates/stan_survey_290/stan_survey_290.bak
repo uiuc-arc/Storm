@@ -1,0 +1,30 @@
+nmax : 500
+m : 5
+k : [16, 18, 22, 25, 27] [m]
+transformeddata{
+    int<lower=0> nmin
+    nmin = max(k)
+}
+theta := normal(1234.0,1234.0)<lower=0,upper=1>
+transformedparam{
+    vector[nmax] lp_parts
+    for(n in 1:nmax)
+    {
+        if(n<nmin)
+        {
+            lp_parts[n] = log(1.0/nmax)+negative_infinity()
+        }
+        else
+        {
+            lp_parts[n] = log(1.0/nmax)+binomial_log(k,n,theta)
+        }
+    }
+}
+increment_log_prob(log_sum_exp(lp_parts))
+generatedquantities {
+  int<lower=1,upper=nmax> n
+  simplex[nmax] prob_n
+  prob_n = softmax(lp_parts)
+  n = categorical_rng(prob_n)
+}
+posterior(theta)

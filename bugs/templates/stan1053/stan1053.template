@@ -1,0 +1,10 @@
+dummy : 0
+generatedquantities {
+  float <lower=0> lambdax
+  float x
+  lambdax = lognormal_rng(10E10,10)
+  x = poisson_rng(lambdax)
+  if(x < 0){
+    print("bug: ", x)
+    }
+}

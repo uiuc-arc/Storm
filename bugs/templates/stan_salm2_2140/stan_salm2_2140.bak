@@ -1,0 +1,22 @@
+Ndoses : 6
+Nplates : 3
+y : [[15, 21, 29], [16, 18, 21], [16, 26, 33], [27, 41, 60], [33, 38, 41], [20, 27, 42]] [Ndoses, Nplates]
+x : [0.0, 10.0, 33.0, 100.0, 333.0, 1000.0] [Ndoses]
+transformedparam{
+    float<lower=0> sigma
+    sigma = 1.0/sqrt(tau)
+}
+alpha := normal(0.0,100.0)
+beta := normal(0.0,100.0)
+gamma := normal(0.0,100000.0)
+tau := gamma(0.001,0.001)<lower=0>
+for(dose in 1:Ndoses)
+{
+    lambdax[dose] := normal<Nplates>(0.0,sigma)[Ndoses]
+    observe(poisson_log(alpha+beta*log(x[dose]+10)+gamma*x[dose]+lambdax[dose]),y[dose])
+}
+posterior(tau)
+posterior(alpha)
+posterior(beta)
+posterior(gamma)
+posterior(lambdax)

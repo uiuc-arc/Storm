@@ -1,0 +1,8 @@
+N : 0
+x := normal(2.0,1.0)
+if(N>0)
+{
+    y := normal<N>(3.0,1.0)
+}
+posterior(y)
+posterior(x)

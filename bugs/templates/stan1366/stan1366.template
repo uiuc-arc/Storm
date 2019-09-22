@@ -1,0 +1,10 @@
+dummy : 0
+y := normal<2>(1234.0,1234.0)
+x := normal<3>(1234.0,1234.0)
+transformedparam{
+    vector[5] z
+    z = append_row(x,y)
+}
+z := normal<5>(0.0,1.0)
+posterior(y)
+posterior(x)

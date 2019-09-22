@@ -1,0 +1,7 @@
+cmdstan*
+stanout
+log*.txt
+pyvirtual/
+output
+ss2.py
+pyro_out

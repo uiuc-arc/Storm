@@ -1,0 +1,9 @@
+K : 100
+Omega := lkj_corr<100>(1234.0, 1234.0)
+sigma := normal<100>(1234.0,1234.0)<lower=0>
+transformedparam{
+    cov_matrix[K] Sigma
+    Sigma = multiply_lower_tri_self_transpose(rep_matrix(1.0,100))
+}
+posterior(Omega)
+posterior(sigma)

@@ -1,0 +1,9 @@
+N : 3
+y : [10, 15, 25] [N]
+x := multinomial<N>(1234.0,1234.0)
+observe(multinomial(x),y)
+generatedquantities{
+   int y_rep[N]
+   y_rep = multinomial_rng(x,50)
+}
+posterior(x)

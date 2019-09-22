@@ -1,0 +1,7 @@
+dummy : 0
+float c
+c = gamma_p(a,x)
+a := normal(20.0,1.0)<lower=0>
+x := normal(20.0,1.0)<lower=0>
+posterior(a)
+posterior(x)

@@ -1,0 +1,13 @@
+dummy:0
+transformeddata{
+    float lo
+    lo = negative_infinity()
+    print("Finished transforming data.")
+}
+transformedparam{
+	print("In transformed parameters")
+}
+print("Starting model.")
+scale := normal(0.0,1.0)
+reject("QUIT")
+posterior(scale)

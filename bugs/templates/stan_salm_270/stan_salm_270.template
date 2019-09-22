@@ -1,0 +1,45 @@
+Ndoses : 6
+Nplates : 3
+y : [[15, 16, 16], [27, 33, 20], [21, 18, 26], [41, 38, 27], [29, 21, 33], [60, 41, 42]]  [Ndoses, Nplates]
+x : [0.0, 10.0, 33.0, 100.0, 333.0, 1000.0] [Ndoses]
+transformeddata{
+    float logx[Ndoses]
+    float mean_x
+    float mean_logx
+    float centered_x[Ndoses]
+    float centered_logx[Ndoses]
+    mean_x = mean(x)
+    for(dose in 1:Ndoses)
+    {
+        centered_x[dose] = x[dose]-mean_x
+    }
+    for(dose in 1:Ndoses)
+    {
+        logx[dose] = log(x[dose]+10)
+    }
+    mean_logx = mean(logx)
+    for(dose in 1:Ndoses)
+    {
+        centered_logx[dose] = logx[dose]-mean_logx
+    }
+}
+transformedparam{
+    float<lower=0> sigma
+    float alpha
+    alpha = alpha_star-beta*mean_logx-gamma*mean_x
+    sigma = 1.0/sqrt(tau)
+}
+alpha_star := normal(0.0,1000.0)
+beta := normal(0.0,1000.0)
+gamma := normal(0.0,1000.0)
+tau := gamma(0.001,0.001)<lower=0>
+for(dose in 1:Ndoses)
+{
+    lambdax[dose] := normal<Nplates>(0.0,sigma)[Ndoses]
+    observe(poisson_log(alpha_star+beta*centered_logx[dose]+gamma*centered_x[dose]+lambdax[dose]),y[dose])
+}
+posterior(tau)
+posterior(beta)
+posterior(alpha_star)
+posterior(gamma)
+posterior(lambdax)

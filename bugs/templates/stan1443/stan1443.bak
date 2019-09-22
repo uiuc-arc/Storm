@@ -1,0 +1,8 @@
+dummy : 0
+transformeddata{
+    float y[0]
+    float x
+    x = sum(y)
+}
+theta := normal(1234.0,1234.0)<lower=0,upper=1>
+posterior(theta)

@@ -1,0 +1,10 @@
+[
+
+  {
+    "file": "bugs/templates/stan1601/stan1601.template",
+    "dir": "bugs/templates/stan1601/",
+    "data": "bugs/templates/stan1601/stan1601.data",
+    "type": "variational",
+    "skip" : false
+  }
+]

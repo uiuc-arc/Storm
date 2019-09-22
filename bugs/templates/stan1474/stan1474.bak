@@ -1,0 +1,7 @@
+dummy : 0
+alpha := normal<5>(0.0,0.0001)<lower=0>
+generatedquantities {
+  simplex[5] beta
+  beta = dirichlet_rng(alpha)
+}
+posterior(alpha)

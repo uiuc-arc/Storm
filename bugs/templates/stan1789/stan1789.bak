@@ -1,0 +1,13 @@
+dummy:0
+transformeddata{
+    float lo
+    lo = negative_infinity()
+     print("Finished transforming data.")
+}
+float z_lo
+print("Starting model.")
+scale := normal(0.0,1.0)
+print("A")
+print("B")
+z_lo = lo*scale
+posterior(scale)

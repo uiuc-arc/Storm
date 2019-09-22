@@ -1,0 +1,7 @@
+dummy : 0
+transformedparam{
+    vector[2] B
+    B = A
+}
+A := normal<1>(0.0,1.0)
+posterior(A)
